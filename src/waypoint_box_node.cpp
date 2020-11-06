@@ -91,13 +91,13 @@ void init_parameter(void)
     }
     std::cout << std::endl;
 
-    wp_time_sum = sqrt(pow(WayPoint_X[0], 2) + pow(WayPoint_Y[0], 2) + pow(WayPoint_Z[0], 2));
+    wp_time_sum = sqrt(pow(WayPoint_X[0], 2) + pow(WayPoint_Y[0], 2) + pow(WayPoint_Z[0], 2)) /0.5;
 }
 
 void Waypoint_Publish(void)
 {
-    if (t_cur > wp_time_sum *1.0) {
-        wp_time_sum += sqrt(pow(WayPoint_X[wp_ind+1] - WayPoint_X[wp_ind], 2) + pow(WayPoint_Y[wp_ind+1] - WayPoint_Y[wp_ind], 2) + pow(WayPoint_Z[wp_ind+1] - WayPoint_Z[wp_ind], 2));
+    if (t_cur > wp_time_sum) {
+        wp_time_sum += sqrt(pow(WayPoint_X[wp_ind+1] - WayPoint_X[wp_ind], 2) + pow(WayPoint_Y[wp_ind+1] - WayPoint_Y[wp_ind], 2) + pow(WayPoint_Z[wp_ind+1] - WayPoint_Z[wp_ind], 2)) /0.5;
         wp_ind++;
     }
 
