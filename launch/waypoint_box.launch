@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="waypoint_box" name="waypoint_box_node" type="waypoint_box_node"/>
+</launch>
